@@ -16,7 +16,7 @@ namespace Taste.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return base.Ok(Json(new { data = _unitOfWork.Category.GetAll() }));
+            return Json(new { data = _unitOfWork.Category.GetAll() });
         }
     }
 }
