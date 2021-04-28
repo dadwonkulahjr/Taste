@@ -7,39 +7,37 @@ $(document).ready(function () {
 function loadList() {
     dataTable = $('#DT_load').DataTable({
         'ajax': {
-            'url': '/api/category',
+            'url': '/api/foodtype',
             'type': 'GET',
-            'dataType':'json'
+            'dataType': 'json'
         },
         'columns': [
-            {'data':'name', 'width':'40%'},
-            { 'data': 'displayOrder', 'width': '30%' },
+            { 'data': 'name', 'width': '40%' },
             {
                 'data': 'id',
                 'render': function (data) {
                     return `<div class="text-center">
-                            <a href="/Admin/category/upsert?id=${data}" class="btn btn-success text-white"
+                            <a href="/Admin/foodtype/upsert?id=${data}" class="btn btn-success text-white"
                             style="cursor:pointer;width:100px;">
                              <i class="far fa-edit"></i>Edit
                             </a>
                             <a class="btn btn-danger text-white"
-                            style="cursor:pointer;width:100px;" onclick=Delete('/api/category/'+${data})>
+                            style="cursor:pointer;width:100px;" onclick=Delete('/api/foodtype/'+${data})>
                              <i class="far fa-trash-alt"></i>Delete
                             </a>
                             `;
-                },'width':'30%'
+                }, 'width': '30%'
             }
         ],
         'language': {
-            'emptyTable':'No data has been added yet!'
+            'emptyTable': 'No data has been added yet!'
         },
-        'width':'100%'
+        'width': '100%'
     });
 
 }
 
-function Delete(url)
-{
+function Delete(url) {
     swal({
         title: 'Are you sure you want to Delete?',
         text: 'You will not be able to restored the data!',

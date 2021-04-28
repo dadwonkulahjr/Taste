@@ -9,8 +9,12 @@ namespace Taste.DataAccess.Data.Repository
         {
             _applicationDbContext = applicationDbContext;
             Category = new CategoryRepository(_applicationDbContext);
+            FoodType = new FoodTypeRepository(_applicationDbContext);
         }
         public ICategoryRepository Category { get; private set; }
+
+        public IFoodTypeRepository FoodType { get; private set; }
+
         public void Dispose()
         {
             _applicationDbContext.Dispose();

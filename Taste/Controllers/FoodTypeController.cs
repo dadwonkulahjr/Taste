@@ -5,10 +5,10 @@ namespace Taste.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoryController : Controller
+    public class FoodTypeController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-        public CategoryController(IUnitOfWork unitOfWork)
+        public FoodTypeController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
@@ -16,19 +16,19 @@ namespace Taste.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Json(new { data = _unitOfWork.Category.GetAll() });
+            return Json(new { data = _unitOfWork.FoodType.GetAll() });
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var obj = _unitOfWork.Category.GetFirstOrDefault(c => c.Id == id);
+            var obj = _unitOfWork.FoodType.GetFirstOrDefault(c => c.Id == id);
             if (obj == null)
             {
                 return Json(new { success = false, message = "Error why deleting." });
             }
 
-            _unitOfWork.Category.Remove(obj);
+            _unitOfWork.FoodType.Remove(obj);
             _unitOfWork.Save();
             return Json(new { success = true, message = "Delete successful" });
 
