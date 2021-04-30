@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Taste.Pages.Admin.MenuItems
+namespace Taste.Pages.Customer.Home
 {
     public class IndexModel : PageModel
     {

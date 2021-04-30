@@ -26,7 +26,7 @@ namespace Taste.DataAccess.Data.Repository
                     findMenuItemInDb.Image = menuItemToUpdate.Image;
                 }
 
-                _applicationDbContext.SaveChanges();
+            
             }
         }
     }

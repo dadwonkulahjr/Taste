@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Taste.DataAccess.Data.Repository.IRepository;
@@ -23,7 +19,7 @@ namespace Taste.Pages.Admin.Category
             if (id != null)
             {
                 CategoryObj = _unitOfWork.Category.GetFirstOrDefault(c => c.Id == id.Value);
-                if(CategoryObj == null)
+                if (CategoryObj == null)
                 {
                     return NotFound();
                 }
@@ -33,12 +29,12 @@ namespace Taste.Pages.Admin.Category
 
         public IActionResult OnPost()
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            if(CategoryObj.Id == 0)
+            if (CategoryObj.Id == 0)
             {
                 _unitOfWork.Category.Add(CategoryObj);
             }
@@ -51,3 +47,4 @@ namespace Taste.Pages.Admin.Category
         }
     }
 }
+

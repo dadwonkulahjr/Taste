@@ -20,7 +20,8 @@ namespace Taste.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Json(new { data = _unitOfWork.Category.GetAll(null, null, "Category,FoodType") });
+            var data = _unitOfWork.MenuItem.GetAll(null, null, "Category,FoodType");
+            return Json(new { data });
         }
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
@@ -32,13 +33,15 @@ namespace Taste.Controllers
                 {
                     return Json(new { success = false, message = "Error why deleting." });
                 }
+                string imageStringLen = obj.Image.Substring(18);
+                string upload = Path.Combine(_hostingEnvironment.WebRootPath, @"images\menuItems");
 
-                string imagePath = Path.Combine(_hostingEnvironment.WebRootPath, obj.Image.TrimStart('\\'));
-                if (System.IO.File.Exists(imagePath))
+                string fullPath = Path.Combine(upload, imageStringLen);
+
+                if (System.IO.File.Exists(fullPath))
                 {
-                    System.IO.File.Delete(imagePath);
+                    System.IO.File.Delete(fullPath);
                 }
-
                 _unitOfWork.MenuItem.Remove(obj);
                 _unitOfWork.Save();
             }
