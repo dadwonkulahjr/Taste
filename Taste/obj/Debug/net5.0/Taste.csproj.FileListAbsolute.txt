@@ -407,3 +407,4 @@ C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\obj\Debug\net5.0\Razor\Page
 C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\obj\Debug\net5.0\Razor\Pages\Admin\MenuItem\Index.cshtml.g.cs
 C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\obj\Debug\net5.0\Razor\Pages\Admin\MenuItem\Upsert.cshtml.g.cs
 C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\obj\Debug\net5.0\Razor\Pages\Admin\Category\Upsert.cshtml.g.cs
+C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\obj\Debug\net5.0\Razor\Pages\Customer\Home\Index.cshtml.g.cs
