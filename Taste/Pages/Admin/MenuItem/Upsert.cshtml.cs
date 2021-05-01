@@ -70,7 +70,7 @@ namespace Taste.Pages.Admin.MenuItem
                 {
                     if (files.Count > 0)
                     {
-                        string imageStringLen = findObjFromDb.Image.Substring(18);
+                        string imageStringLen = findObjFromDb.Image[18..];
                        
                         string newGuid = Guid.NewGuid().ToString();
                         string upload = Path.Combine(webRootPath, @"images\menuItems");

@@ -33,7 +33,7 @@ namespace Taste.Controllers
                 {
                     return Json(new { success = false, message = "Error why deleting." });
                 }
-                string imageStringLen = obj.Image.Substring(18);
+                string imageStringLen = obj.Image[18..];
                 string upload = Path.Combine(_hostingEnvironment.WebRootPath, @"images\menuItems");
 
                 string fullPath = Path.Combine(upload, imageStringLen);
