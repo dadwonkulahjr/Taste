@@ -9,6 +9,9 @@ namespace Taste.DataAccess.Data.Repository.IRepository
         IMenuItemRepository MenuItem { get; }
         IApplicationUserRepository ApplicationUser { get; }
         IShoppingCartRepository ShoppingCart { get; }
+        IOrderHeaderRepository OrderHeader { get; }
+        IOrderDetailRepository OrderDetail { get; }
+
         void Save();
     }
 }

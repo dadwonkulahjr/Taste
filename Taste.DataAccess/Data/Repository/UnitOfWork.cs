@@ -15,6 +15,8 @@ namespace Taste.DataAccess.Data.Repository
             MenuItem = new MenuItemRepository(_applicationDbContext);
             ApplicationUser = new ApplicationUserRepository(_applicationDbContext);
             ShoppingCart = new ShoppingCartRepository(_applicationDbContext);
+            OrderDetail = new OrderDetailRepository(_applicationDbContext);
+            OrderHeader = new OrderHeaderRepository(_applicationDbContext);
         }
         public ICategoryRepository Category { get; private set; }
 
@@ -23,6 +25,8 @@ namespace Taste.DataAccess.Data.Repository
         public IMenuItemRepository MenuItem { get; private set; }
         public IApplicationUserRepository ApplicationUser { get; private set; }
         public IShoppingCartRepository ShoppingCart { get; private set; }
+        public IOrderHeaderRepository OrderHeader { get; private set; }
+        public IOrderDetailRepository OrderDetail { get; private set; }
 
         public void Dispose()
         {
