@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 using Taste.DataAccess;
 using Taste.DataAccess.Data.Repository;
 using Taste.DataAccess.Data.Repository.IRepository;
@@ -40,6 +41,14 @@ namespace Taste
             }).SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_3_0)
             .AddRazorRuntimeCompilation();
 
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             //services.AddSingleton(typeof(SignInManager<ApplicationUser>));
             services.Configure<RouteOptions>(options =>
@@ -66,7 +75,7 @@ namespace Taste
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-           
+            app.UseSession();
 
             app.UseAuthentication();
             app.UseAuthorization();

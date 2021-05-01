@@ -491,3 +491,4 @@ C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\bin\Debug\net5.0\refs\Micro
 C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\bin\Debug\net5.0\refs\System.Collections.Immutable.dll
 C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\bin\Debug\net5.0\refs\System.ComponentModel.Annotations.dll
 C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\bin\Debug\net5.0\refs\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\obj\Debug\net5.0\Razor\Pages\Customer\Home\Details.cshtml.g.cs
