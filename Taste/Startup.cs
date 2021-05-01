@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Taste.DataAccess;
 using Taste.DataAccess.Data.Repository;
 using Taste.DataAccess.Data.Repository.IRepository;
+using Taste.Models;
 
 namespace Taste
 {
@@ -29,7 +30,9 @@ namespace Taste
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddDefaultTokenProviders()
+                .AddDefaultUI()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews(options =>
             {
@@ -38,7 +41,7 @@ namespace Taste
             .AddRazorRuntimeCompilation();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+            //services.AddSingleton(typeof(SignInManager<ApplicationUser>));
             services.Configure<RouteOptions>(options =>
             {
                 options.AppendTrailingSlash = true;
@@ -63,7 +66,7 @@ namespace Taste
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+           
 
             app.UseAuthentication();
             app.UseAuthorization();

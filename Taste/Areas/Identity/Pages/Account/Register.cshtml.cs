@@ -13,6 +13,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using Taste.Models;
+using Taste.Utility;
 
 namespace Taste.Areas.Identity.Pages.Account
 {
@@ -23,17 +25,19 @@ namespace Taste.Areas.Identity.Pages.Account
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _roleManager = roleManager;
         }
 
         [BindProperty]
@@ -60,6 +64,16 @@ namespace Taste.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+            [Required]
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+            [Required]
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+
+            [Display(Name = "Phone Number")]
+            [Required]
+            public string PhoneNumber { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -70,14 +84,62 @@ namespace Taste.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
+            string retrieveRole = HttpContext.Request.Form["rdUserRole"];
+
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = Input.Email,
+                    Email = Input.Email,
+                    FirstName = Input.FirstName,
+                    LastName = Input.LastName,
+                    PhoneNumber = Input.PhoneNumber
+                };
+
+                if (!_roleManager.RoleExistsAsync(SD.ManagerRole).GetAwaiter().GetResult())
+                {
+                    _roleManager.CreateAsync(new IdentityRole(SD.ManagerRole)).GetAwaiter().GetResult();
+                    _roleManager.CreateAsync(new IdentityRole(SD.CustomerRole)).GetAwaiter().GetResult();
+                    _roleManager.CreateAsync(new IdentityRole(SD.FrontDeskRole)).GetAwaiter().GetResult();
+                    _roleManager.CreateAsync(new IdentityRole(SD.KitchenRole)).GetAwaiter().GetResult();
+
+
+                }
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
+                    if (retrieveRole == SD.KitchenRole)
+                    {
+                        _userManager.AddToRoleAsync(user, SD.KitchenRole).GetAwaiter().GetResult();
+                    }
+                    else
+                    {
+                        if (retrieveRole == SD.ManagerRole)
+                        {
+                            _userManager.AddToRoleAsync(user, SD.ManagerRole).GetAwaiter().GetResult();
+                        }
+                        {
+                            if (retrieveRole == SD.FrontDeskRole)
+                            {
+                                _userManager.AddToRoleAsync(user, SD.FrontDeskRole).GetAwaiter().GetResult();
+                            }
+                            else
+                            {
+                                if (retrieveRole == SD.CustomerRole)
+                                {
+                                    _userManager.AddToRoleAsync(user, SD.CustomerRole).GetAwaiter().GetResult();
+                                }
+                                else
+                                {
+                                    _signInManager.SignInAsync(user, isPersistent: false).GetAwaiter().GetResult();
+                                    return LocalRedirect(returnUrl);
+                                }
+                            }
+                        }
+                    }
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
