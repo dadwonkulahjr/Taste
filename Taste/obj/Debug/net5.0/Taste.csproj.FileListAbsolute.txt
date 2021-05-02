@@ -495,3 +495,6 @@ C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\obj\Debug\net5.0\Razor\Page
 C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\obj\Debug\net5.0\Razor\Pages\Customer\Cart\Index.cshtml.g.cs
 C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\obj\Debug\net5.0\Razor\Pages\Customer\Cart\Summary.cshtml.g.cs
 C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\obj\Debug\net5.0\Razor\Pages\Customer\Cart\OrderConfirmation.cshtml.g.cs
+C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.Facebook.dll
+C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll
+C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.Google.dll

@@ -4,14 +4,14 @@
     ViewData["Title"] = "Register";
 }
 
-<form method="post" autocomplete="off" asp-route-returnUrl="@Model.ReturnUrl">
-    <div class="container">
-        <div class="py-4 my-4">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="row form-group">
-                <div class="col-sm-8 offset-2">
-                    <div class="card shadow">
 
+<div class="container">
+    <div class="py-4 my-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row form-group">
+            <div class="col-sm-8 offset-2">
+                <div class="card shadow">
+                    <form method="post" autocomplete="off" asp-route-returnUrl="@Model.ReturnUrl">
                         <div class="card-body px-lg-5 pt-4">
                             <h3 class="text-center col-12 py-4 text-success">
                                 <strong>Sign Up</strong>
@@ -51,59 +51,94 @@
                                 <input type="radio" name="rdUserRole" value="@SD.KitchenRole" /> @SD.KitchenRole
                                 <input type="radio" name="rdUserRole" value="@SD.FrontDeskRole" /> @SD.FrontDeskRole
                                 <input type="radio" name="rdUserRole" value="@SD.ManagerRole" /> @SD.ManagerRole
-                                <input type="radio"  name="rdUserRole" value="@SD.CustomerRole" /> @SD.CustomerRole
+                                <input type="radio" name="rdUserRole" value="@SD.CustomerRole" /> @SD.CustomerRole
                             </div>
-                          <div class="py-2">
-                              <button type="submit" class="btn btn-success form-control">
-                                  Register
-                              </button>
-                          </div>
-                        <hr />
-                            <p>
-                                By clicking <em>Register</em> you agree to our 
-                                <a href="" target="_blank"> term of service</a>
-                            </p>
+                            <div class="py-2">
+                                <button type="submit" class="btn btn-success form-control">
+                                    <i class="fas fa-user-plus"></i>&nbsp;  Register
+                                </button>
+                            </div>
                         </div>
+                    </form>
+
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <p>
+                            By clicking <em>Register</em> you agree to our
+                            <a href="" target="_blank"> term of service</a>
+                        </p>
+                        <hr />
+                        <div class="row">
+                            @foreach (var provider in Model.ExternalLogins)
+                            {
+                            <div class="col-4">
+                                @if (provider.Name.ToLower().Contains("facebook"))
+                                {
+                                    <button type="submit" style="background-color:blue;color:white"  class="btn facebook-btn btn-block form-control" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account"><i class="fab fa-facebook-square"></i>&nbsp; Sign up with @provider.DisplayName</button>
+                                }
+                                else
+                                {
+                                    @if (provider.Name.ToLower().Contains("google"))
+                                    {
+                                        <button type="submit" style="background-color:lightcoral;color:white" class="btn google-btn btn-block form-control" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account"><i class="fab fa-google"></i>&nbsp; Sign up with @provider.DisplayName</button>
+                                    }
+                                    else
+                                    {
+                                        if (provider.Name.ToLower().Contains("micro"))
+                                        {
+                                            <button type="submit" style="background-color:dodgerblue;color:white" class="btn microsoft-btn btn-block form-control" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account"><i class="fab fa-windows"></i>&nbsp; Sign up with @provider.DisplayName</button>
+                                        }
+                                    }
+                                }
+                            </div>
 
 
-                    </div>
+                            }
+
+                        </div>
+                    </form>
+
                 </div>
+
+
             </div>
         </div>
     </div>
+</div>
 
 
-</form>
 
-@section Scripts{ 
+
+
+
+@section Scripts{
     <partial name="_ValidationScriptsPartial" />
 }
 
-@*<div class="row">
-        <div class="col-md-4">
-            <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                <h4>Create a new account.</h4>
-                <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Input.Email"></label>
-                    <input asp-for="Input.Email" class="form-control" />
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Input.Password"></label>
-                    <input asp-for="Input.Password" class="form-control" />
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Input.ConfirmPassword"></label>
-                    <input asp-for="Input.ConfirmPassword" class="form-control" />
-                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-                </div>
-                <button type="submit" class="btn btn-primary">Register</button>
-            </form>
-        </div>
-        <div class="col-md-6 col-md-offset-2">
+
+@*<div class="col-md-4">
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h4>Create a new account.</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.Email"></label>
+                <input asp-for="Input.Email" class="form-control" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Password"></label>
+                <input asp-for="Input.Password" class="form-control" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.ConfirmPassword"></label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>*@
+@*<div class="col-md-6 col-md-offset-2">
             <section>
                 <h4>Use another service to register.</h4>
                 <hr />
@@ -119,16 +154,7 @@
                     }
                     else
                     {
-                        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                            <div>
-                                <p>
-                                    @foreach (var provider in Model.ExternalLogins)
-                                    {
-                                        <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                    }
-                                </p>
-                            </div>
-                        </form>
+
                     }
                 }
             </section>

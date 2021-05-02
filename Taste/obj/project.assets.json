@@ -11,6 +11,42 @@
           "lib/netstandard2.0/Humanizer.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Authentication.Facebook/5.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Microsoft.AspNetCore.Authentication.Google/5.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.Google.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.Google.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Microsoft.AspNetCore.Authentication.MicrosoftAccount/5.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/5.0.4": {
         "type": "package",
         "compile": {
@@ -2262,6 +2298,51 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Facebook/5.0.5": {
+      "sha512": "I8YwaHFBVTmGkXp5jgVESfpeYOCF+9Cqtgt8TGCNjl7FbsB3W5vo7gqtOA1fPgQYn5iA03qrA8VDkQHW3AaVAw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.facebook/5.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net5.0/Microsoft.AspNetCore.Authentication.Facebook.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Authentication.Facebook.xml",
+        "microsoft.aspnetcore.authentication.facebook.5.0.5.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.facebook.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Google/5.0.5": {
+      "sha512": "6S5xW1Nxex6LmO+QKFSxw4oGT0Z2jBtRVOZfyjiatLgMX4mjRSqXEqyHvqADvmSEg5yEGdVSR/A3j4jbOhm6ag==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.google/5.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net5.0/Microsoft.AspNetCore.Authentication.Google.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Authentication.Google.xml",
+        "microsoft.aspnetcore.authentication.google.5.0.5.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.google.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.MicrosoftAccount/5.0.5": {
+      "sha512": "Bz1xDozk86FE31s/AEC1YnysnwaNb3Cq+3wBleQOxIONtS6b17Q7zHmr6HUc8EhBWPdaZ972jWfgN6tJHVDZsw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.microsoftaccount/5.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net5.0/Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Authentication.MicrosoftAccount.xml",
+        "microsoft.aspnetcore.authentication.microsoftaccount.5.0.5.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.microsoftaccount.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/5.0.4": {
@@ -7693,6 +7774,9 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Microsoft.AspNetCore.Authentication.Facebook >= 5.0.5",
+      "Microsoft.AspNetCore.Authentication.Google >= 5.0.5",
+      "Microsoft.AspNetCore.Authentication.MicrosoftAccount >= 5.0.5",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 5.0.5",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 5.0.4",
       "Microsoft.AspNetCore.Identity.UI >= 5.0.4",
@@ -7751,6 +7835,18 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Facebook": {
+            "target": "Package",
+            "version": "[5.0.5, )"
+          },
+          "Microsoft.AspNetCore.Authentication.Google": {
+            "target": "Package",
+            "version": "[5.0.5, )"
+          },
+          "Microsoft.AspNetCore.Authentication.MicrosoftAccount": {
+            "target": "Package",
+            "version": "[5.0.5, )"
+          },
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
             "version": "[5.0.5, )"

@@ -50,6 +50,26 @@ namespace Taste
                 options.Cookie.IsEssential = true;
             });
             services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
+            services.AddAuthentication()
+                        .AddFacebook(facebookOptions =>
+                        {
+                            facebookOptions.AppId = "287306226351622";
+                            facebookOptions.AppSecret = "502449dbc27950a2966c5dd2a8304d18";
+                        });
+
+            services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    options.ClientId = "68737654537-ojmd61fskreg5dulshi1du8osp01hupk";
+                    options.ClientSecret = "w_gYNfZJ4ekoVvvhqTLMwRjm";
+                });
+
+            services.AddAuthentication()
+                    .AddMicrosoftAccount(microsoftAccount =>
+                    {
+                        microsoftAccount.ClientId = "b335392e-46c1-4605-a79a-d7e293211845";
+                        microsoftAccount.ClientSecret = "zdqutjF1vSW6Y_.taSxSEr4-N92S67u.Gm";
+                    });
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             //services.AddSingleton(typeof(SignInManager<ApplicationUser>));
