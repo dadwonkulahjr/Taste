@@ -21,34 +21,41 @@ using Microsoft.AspNetCore.Identity;
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\Pages\_ViewImports.cshtml"
-using Taste;
+using Microsoft.Extensions.Options;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\Pages\_ViewImports.cshtml"
-using Microsoft.AspNetCore.Http;
+using Taste;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 4 "C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\Pages\_ViewImports.cshtml"
-using Taste.Utility;
+using Microsoft.AspNetCore.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 5 "C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\Pages\_ViewImports.cshtml"
+using Taste.Utility;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\Pages\_ViewImports.cshtml"
 using Taste.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"71424e84e15faf11ad1725b8b59eb4122c39fa8c", @"/Pages/Customer/Cart/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"acb401a123853ed32d7be6935be79dbb3e9c4664", @"/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2dca616bbfbfdfd781fe9020e5ebaa06cebd15b6", @"/Pages/_ViewImports.cshtml")]
     public class Pages_Customer_Cart_Index : global::Microsoft.AspNetCore.Mvc.RazorPages.Page
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-outline-info btn-sm"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -101,7 +108,7 @@ using Taste.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71424e84e15faf11ad1725b8b59eb4122c39fa8c8735", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71424e84e15faf11ad1725b8b59eb4122c39fa8c8931", async() => {
                 WriteLiteral("\r\n\r\n    <br />\r\n");
 #nullable restore
 #line 11 "C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\Pages\Customer\Cart\Index.cshtml"
@@ -121,7 +128,7 @@ using Taste.Models;
                         </div>
                         <div class=""col-6 text-right"">
                             ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71424e84e15faf11ad1725b8b59eb4122c39fa8c9778", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71424e84e15faf11ad1725b8b59eb4122c39fa8c9974", async() => {
                     WriteLiteral("Continue Shopping");
                 }
                 );
@@ -147,7 +154,7 @@ using Taste.Models;
 #line hidden
 #nullable disable
                 WriteLiteral("                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "71424e84e15faf11ad1725b8b59eb4122c39fa8c11558", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "71424e84e15faf11ad1725b8b59eb4122c39fa8c11754", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -208,7 +215,7 @@ WriteAttributeValue("", 1329, item.MenuItem.Image, 1329, 20, false);
 #line hidden
 #nullable disable
                 WriteLiteral("</strong></h6>\r\n                                    </div>\r\n                                    <div class=\"col-6 col-sm-4 col-lg-6\">\r\n                                        <div class=\"float-right mx-1\">\r\n                                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71424e84e15faf11ad1725b8b59eb4122c39fa8c15643", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71424e84e15faf11ad1725b8b59eb4122c39fa8c15839", async() => {
                     WriteLiteral("\r\n                                                <i class=\"fas fa-plus\"></i>\r\n                                            ");
                 }
                 );
@@ -241,7 +248,7 @@ WriteAttributeValue("", 1329, item.MenuItem.Image, 1329, 20, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        </div>\r\n                                        <div class=\"float-right mx-1\">\r\n                                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71424e84e15faf11ad1725b8b59eb4122c39fa8c18419", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71424e84e15faf11ad1725b8b59eb4122c39fa8c18615", async() => {
                     WriteLiteral("\r\n                                                <i class=\"fas fa-minus\"></i>\r\n                                            ");
                 }
                 );
@@ -274,7 +281,7 @@ WriteAttributeValue("", 1329, item.MenuItem.Image, 1329, 20, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        </div>\r\n                                    </div>\r\n                                    <div class=\"col-2 col-sm-4 col-lg-2 text-right\">\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71424e84e15faf11ad1725b8b59eb4122c39fa8c21252", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71424e84e15faf11ad1725b8b59eb4122c39fa8c21448", async() => {
                     WriteLiteral("\r\n                                            <i class=\"fas fa-trash\"></i>\r\n                                        ");
                 }
                 );
@@ -345,7 +352,7 @@ WriteAttributeValue("", 1329, item.MenuItem.Image, 1329, 20, false);
                     <div class=""card-footer"">
                         <div class=""col-12 col-lg-4 offset-lg-8 col-md-6 offset-md-6"">
                             ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71424e84e15faf11ad1725b8b59eb4122c39fa8c25561", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71424e84e15faf11ad1725b8b59eb4122c39fa8c25757", async() => {
                     WriteLiteral("Summary");
                 }
                 );
