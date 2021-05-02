@@ -26,17 +26,18 @@ namespace Taste.Pages.Customer.Cart
         {
             OrderDetailsCartVMObj = new()
             {
-                OrderHeader = new()
+                OrderHeader = new(),
+                ListOfShoppingCart = new()
             };
 
             OrderDetailsCartVMObj.OrderHeader.OrderTotal = 0;
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
-            if(claim != null)
+            IEnumerable<ShoppingCart> listOfShoppingCarts = _unitOfWork.ShoppingCart.GetAll(c => c.ApplicationUserId == claim.Value);
+            if (claim != null)
             {
-                IEnumerable<ShoppingCart> listOfShoppingCarts = _unitOfWork.ShoppingCart.GetAll(c => c.ApplicationUserId == claim.Value);
-
+                OrderDetailsCartVMObj.ListOfShoppingCart = listOfShoppingCarts.ToList();
                 if(listOfShoppingCarts != null)
                 {
                     OrderDetailsCartVMObj.ListOfShoppingCart = listOfShoppingCarts.ToList();

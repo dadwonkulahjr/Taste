@@ -45,12 +45,38 @@
                                 </div>
                             </li>
                         }
+                        @if (User.IsInRole(SD.ManagerRole) || User.IsInRole(SD.KitchenRole))
+                        {
+                            <li>
+                                <a asp-page="/Admin/Order/ManageOrder" class="nav-link text-white">
+                                    Manage Order
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(SD.ManagerRole) || User.IsInRole(SD.FrontDeskRole))
+                        {
+                            <li>
+                                <a asp-page="/Admin/Order/OrderList" class="nav-link text-white">
+                                    Order Pickup
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(SD.CustomerRole))
+                        {
+                            <li>
+                                <a asp-page="/Admin/Order/OrderList" class="nav-link text-white">
+                                    Order History
+                                </a>
+                            </li>
+                        }
+
+
                         @if (_httpContextAccesssor.HttpContext.Session.GetInt32(SD.ShoppingCart) != null)
                         {
 
                             <li>
                                 <a asp-page="/Customer/Cart/Index" class="nav-link text-white-50">
-                                    @{ 
+                                    @{
                                         var count = _httpContextAccesssor.HttpContext.Session.GetInt32(SD.ShoppingCart);
                                     }
                                     <i class="fas fa-shopping-cart"></i> &nbsp; (@count)

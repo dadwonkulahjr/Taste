@@ -13,6 +13,7 @@ namespace Taste.Models
         [ForeignKey(name: "UserId")]
         public virtual ApplicationUser ApplicationUser { get; set; }
         [Required]
+        [Display(Name ="Order Date")]
         public DateTime OrderDate { get; set; }
         [Required]
         [DisplayFormat(DataFormatString ="{0:C}")]
