@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "RP9h38awrb1bGvcIYXZpGQlk93xACjEgRmWFqzrzxiEwwtS8KpKsfAi7JT4L5owvORtehD3/kTZVBqH1KCwhwg==",
+  "dgSpecHash": "+GO9C2yw3++w9FAFZEIoRO5tpUal4L0+f/A6uYeWjTpKSvdmvyVGD6SWhDp6npee3d9tjBQNdHwJEjQLocbvOQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dad S. Wonkulah Jr\\source\\repos\\Taste\\Taste\\Taste.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Dad S. Wonkulah Jr\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\Dad S. Wonkulah Jr\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Dad S. Wonkulah Jr\\.nuget\\packages\\microsoft.aspnetcore.authentication.facebook\\5.0.5\\microsoft.aspnetcore.authentication.facebook.5.0.5.nupkg.sha512",
     "C:\\Users\\Dad S. Wonkulah Jr\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\5.0.5\\microsoft.aspnetcore.authentication.google.5.0.5.nupkg.sha512",

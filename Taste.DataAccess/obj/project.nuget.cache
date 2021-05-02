@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "o4+3CMQSS8Caw70RRF2fBTtC+Ffcmtk8WS7+HBc5z2zNYeMdugU1FPN8JqB283yVw3MeBskAjohMUC6UjKddQQ==",
+  "dgSpecHash": "BxhqimwYIWWX2CVXsC0JK9EzJUxiUKNrQq3CeCKjUIMT8KvLSSQC0tzOgP+skNmgc2ZlKogGDZ+RpSkMwcl58g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dad S. Wonkulah Jr\\source\\repos\\Taste\\Taste.DataAccess\\Taste.DataAccess.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Dad S. Wonkulah Jr\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\Dad S. Wonkulah Jr\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.4\\microsoft.aspnetcore.cryptography.internal.5.0.4.nupkg.sha512",
     "C:\\Users\\Dad S. Wonkulah Jr\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.4\\microsoft.aspnetcore.cryptography.keyderivation.5.0.4.nupkg.sha512",
     "C:\\Users\\Dad S. Wonkulah Jr\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\5.0.4\\microsoft.aspnetcore.identity.entityframeworkcore.5.0.4.nupkg.sha512",

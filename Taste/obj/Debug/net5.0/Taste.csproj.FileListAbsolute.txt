@@ -501,3 +501,4 @@ C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\bin\Debug\net5.0\Microsoft.
 C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\obj\Debug\net5.0\Razor\Pages\Admin\Order\ManageOrder.cshtml.g.cs
 C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\obj\Debug\net5.0\Razor\Pages\Admin\Order\OrderList.cshtml.g.cs
 C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\obj\Debug\net5.0\Razor\Pages\Admin\Order\OrderDetails.cshtml.g.cs
+C:\Users\Dad S. Wonkulah Jr\source\repos\Taste\Taste\bin\Debug\net5.0\Dapper.dll

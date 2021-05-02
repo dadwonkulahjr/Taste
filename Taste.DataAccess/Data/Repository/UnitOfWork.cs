@@ -17,6 +17,7 @@ namespace Taste.DataAccess.Data.Repository
             ShoppingCart = new ShoppingCartRepository(_applicationDbContext);
             OrderDetail = new OrderDetailRepository(_applicationDbContext);
             OrderHeader = new OrderHeaderRepository(_applicationDbContext);
+            SP_Call = new SP_Call(_applicationDbContext);
         }
         public ICategoryRepository Category { get; private set; }
 
@@ -27,6 +28,8 @@ namespace Taste.DataAccess.Data.Repository
         public IShoppingCartRepository ShoppingCart { get; private set; }
         public IOrderHeaderRepository OrderHeader { get; private set; }
         public IOrderDetailRepository OrderDetail { get; private set; }
+
+        public ISP_Call SP_Call { get; private set; }
 
         public void Dispose()
         {
