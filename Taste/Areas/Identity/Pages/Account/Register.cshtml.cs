@@ -98,16 +98,6 @@ namespace Taste.Areas.Identity.Pages.Account
                     LastName = Input.LastName,
                     PhoneNumber = Input.PhoneNumber
                 };
-
-                if (!_roleManager.RoleExistsAsync(SD.ManagerRole).GetAwaiter().GetResult())
-                {
-                    _roleManager.CreateAsync(new IdentityRole(SD.ManagerRole)).GetAwaiter().GetResult();
-                    _roleManager.CreateAsync(new IdentityRole(SD.CustomerRole)).GetAwaiter().GetResult();
-                    _roleManager.CreateAsync(new IdentityRole(SD.FrontDeskRole)).GetAwaiter().GetResult();
-                    _roleManager.CreateAsync(new IdentityRole(SD.KitchenRole)).GetAwaiter().GetResult();
-
-
-                }
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

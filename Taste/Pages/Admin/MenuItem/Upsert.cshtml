@@ -111,7 +111,7 @@
                     </div>
                 </div>
             </div>
-            @if(Model.MenuItemVM.MenuItem != null)
+            @if (Model.MenuItemVM.MenuItem != null)
             {
                 <div class="col-4 p4">
                     <img src="@Model.MenuItemVM.MenuItem.Image" class="rounded-circle img-fluid" asp-append-version="true" />
@@ -141,5 +141,11 @@
         }
 
     </script>
+
+}
+
+@section Scripts{
+
+    <partial name="_ValidationScriptsPartial" />
 
 }

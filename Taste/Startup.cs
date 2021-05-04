@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Stripe;
 using System;
 using Taste.DataAccess;
+using Taste.DataAccess.Data.Initilizer;
 using Taste.DataAccess.Data.Repository;
 using Taste.DataAccess.Data.Repository.IRepository;
 using Taste.Models;
@@ -71,6 +72,7 @@ namespace Taste
                         microsoftAccount.ClientSecret = "zdqutjF1vSW6Y_.taSxSEr4-N92S67u.Gm";
                     });
 
+            services.AddScoped<IDbInitilizer, DbInitilizer>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             //services.AddSingleton(typeof(SignInManager<ApplicationUser>));
             services.Configure<RouteOptions>(options =>
@@ -82,7 +84,8 @@ namespace Taste
         }
 
         
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
+            IDbInitilizer dbInitilizer)
         {
             if (env.IsDevelopment())
             {
@@ -95,11 +98,13 @@ namespace Taste
                 app.UseHsts();
             }
 
+            dbInitilizer.Initilize();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
             app.UseSession();
+          
 
             app.UseAuthentication();
             app.UseAuthorization();
