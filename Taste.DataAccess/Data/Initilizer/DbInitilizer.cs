@@ -22,7 +22,7 @@ namespace Taste.DataAccess.Data.Initilizer
         {
             try
             {
-                if(_applicationDbContext.Database.GetPendingMigrations().Count() > 0)
+                if(_applicationDbContext.Database.GetPendingMigrations().Any())
                 {
                     _applicationDbContext.Database.Migrate();
                 }
@@ -45,22 +45,21 @@ namespace Taste.DataAccess.Data.Initilizer
                 _roleManagerService.CreateAsync(new IdentityRole(SD.KitchenRole)).GetAwaiter().GetResult();
 
 
-                _userManagerService.CreateAsync(new ApplicationUser()
+                _userManagerService.CreateAsync(new ApplicationUser
                 {
-                    UserName = "iamtuseTheProgrammer@iamtuse.com",
-                    PhoneNumber = "0775060775",
+                    UserName = "admin@iamtuse.com",
+                    Email = "admin@iamtuse.com",
                     FirstName = "Dad",
                     LastName = "Wonkulah",
-                    Email = "iamtuseTheProgrammer@iamtuse.com",
+                    PhoneNumber = "0775060775",
                     EmailConfirmed = true
-                }, "password12345").GetAwaiter().GetResult();
+                }, "tuseTheProgrammer96!").GetAwaiter().GetResult();
 
-                ApplicationUser user = _applicationDbContext.ApplicationUsers
-                                            .Where(c => c.Email == "iamtuseTheProgrammer@iamtuse.com")
-                                            .FirstOrDefault()
-                                            ;
+                var user = _applicationDbContext.ApplicationUsers.Where(user => user.Email == "admin@iamtuse.com").FirstOrDefault();
 
                 _userManagerService.AddToRoleAsync(user, SD.ManagerRole).GetAwaiter().GetResult();
+
+               
             }
         }
     }

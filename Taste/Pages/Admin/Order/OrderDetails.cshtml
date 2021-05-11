@@ -103,20 +103,23 @@
                     }
 
                 </ul>
-                @if (Model.OrderDetailsViewModel.OrderHeader.Status.Equals(SD.StatusReady) && (User.IsInRole(SD.ManagerRole)))
+                @if (Model.OrderDetailsViewModel.OrderHeader.Status != null)
                 {
-                    <button type="submit" asp-page-handler="orderconfirm" asp-route-id="@Model.OrderDetailsViewModel.OrderHeader.Id" class="btn btn-success form-control">
-                        <i class="far fa-thumbs-up"></i>
-                        Confirm Pickup
-                    </button>
-                }
-                else
-                {
-                    <button class="btn btn-info form-control">
-                        <i class="far fa-thumbs-up"></i>
-                        @Model.OrderDetailsViewModel.OrderHeader.Status
-                    </button>
+                    @if (Model.OrderDetailsViewModel.OrderHeader.Status.Equals(SD.StatusReady) && (User.IsInRole(SD.ManagerRole)))
+                    {
+                        <button type="submit" asp-page-handler="orderconfirm" asp-route-id="@Model.OrderDetailsViewModel.OrderHeader.Id" class="btn btn-success form-control">
+                            <i class="far fa-thumbs-up"></i>
+                            Confirm Pickup
+                        </button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-info form-control">
+                            <i class="far fa-thumbs-up"></i>
+                            @Model.OrderDetailsViewModel.OrderHeader.Status
+                        </button>
 
+                    }
                 }
                 @if (User.IsInRole(SD.ManagerRole) || User.IsInRole(SD.FrontDeskRole) && (Model.OrderDetailsViewModel.OrderHeader.Status.Equals(SD.StatusSubmitted) || Model.OrderDetailsViewModel.OrderHeader.Status.Equals(SD.StatusReady) || Model.OrderDetailsViewModel.OrderHeader.Status.Equals(SD.StatusInProcess)))
                 {

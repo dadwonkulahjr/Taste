@@ -63,6 +63,7 @@ namespace Taste.Areas.Identity.Pages.Account
             [DataType(DataType.Password)]
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Required(ErrorMessage ="Confirm Password field is required.")]
             public string ConfirmPassword { get; set; }
             [Required]
             [Display(Name = "First Name")]

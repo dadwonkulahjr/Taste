@@ -98,14 +98,14 @@ namespace Taste
                 app.UseHsts();
             }
 
-            dbInitilizer.Initilize();
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
             app.UseSession();
-          
 
+            dbInitilizer.Initilize();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
